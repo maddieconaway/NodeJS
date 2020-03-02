@@ -1,8 +1,18 @@
-
-const fetch = require('node-fetch');
+///import React from 'react';
+//const fetch = require('node-fetch');
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 fetch('https://reddit.com/r/popular.json')
-.then (res => res.text)
-.then (body => {
-    console.log(body);
-})
+    .then(res => {
+        return res.json()
+    })
+    .then(articles => {
+        articles.data.children.map(e => {
+            console.log(`Title: ${e.data.title}`);
+            console.log(`    Author: ${e.data.author}`);
+            console.log(`    Url: ${e.data.url}`);
+        })
+    });
+
+
