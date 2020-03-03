@@ -1,5 +1,4 @@
-///import React from 'react';
-//const fetch = require('node-fetch');
+
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
